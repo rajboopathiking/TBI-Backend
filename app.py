@@ -3,7 +3,7 @@ from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import numpy as np
 
-model_path = "Backend/Model/DBI_Model.h5"
+model_path = "Backend/Model/DBI_MOdel.h5"
 model = load_model(model_path)
 
 app = Flask(__name__)
