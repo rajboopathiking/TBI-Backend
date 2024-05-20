@@ -6,7 +6,7 @@ import numpy as np
 import uvicorn
 
 # Load pre-trained model
-model_path = "Model.keras"
+model_path = "model_TBI.keras"
 model = load_model(model_path)
 
 # Define FastAPI app
