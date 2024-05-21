@@ -4,4 +4,3 @@ gunicorn
 fastapi
 uvicorn
 pydantic
-pickle
