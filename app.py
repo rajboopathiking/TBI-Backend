@@ -7,7 +7,7 @@ import uvicorn
 import pickle
 
 # Load pre-trained model
-model_path = "model_TBI.keras"
+model_path = "model_TBI.h5"
 model = load_model(model_path)
 
 # scaler
