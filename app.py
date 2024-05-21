@@ -42,11 +42,10 @@ async def predict(data: InputData):
     try:
         input_data = data.data
         prediction = model.predict(scaler.transform(np.array([input_data]).reshape(1,-1)))
-        result = np.argmax(prediction)
-        if result == 1:
-            return {"Prediction": "Abnormal Condition"}
+        if np.argmax(prediction) == 0:
+            return {"Prediction": "normal Condition"}
         else:
-            return {"Prediction": "Normal Condition"}
+            return {"Prediction": "abnormal Condition"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
