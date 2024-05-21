@@ -11,9 +11,7 @@ model_path = "model_TBI.keras"
 model = load_model(model_path)
 
 # scaler
-
-with open("scaler.pkl","rb") as file:
-    scaler = pickle.load(file)
+scaler = pickle.load(open("scaler.pkl","rb"))
 
 # Define FastAPI app
 app = FastAPI()
