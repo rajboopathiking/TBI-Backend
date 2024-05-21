@@ -4,10 +4,16 @@ from pydantic import BaseModel
 from tensorflow.keras.models import load_model
 import numpy as np
 import uvicorn
+import pickle
 
 # Load pre-trained model
 model_path = "model_TBI.keras"
 model = load_model(model_path)
+
+# scaler
+
+with open("scaler.pkl","rb") as file:
+    scaler = pickle.load(file)
 
 # Define FastAPI app
 app = FastAPI()
@@ -35,7 +41,7 @@ async def home():
 async def predict(data: InputData):
     try:
         input_data = data.data
-        prediction = model.predict(np.array([input_data]).reshape(1,-1))
+        prediction = model.predict(scaler.transform(np.array([input_data]).reshape(1,-1)))
         result = np.argmax(prediction)
         if result == 1:
             return {"Prediction": "Abnormal Condition"}
