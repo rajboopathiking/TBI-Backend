@@ -1,5 +1,5 @@
-tensorflow == 2.16.1
-Keras >= 2.13
+tensorflow == 2.15.0
+Keras == 2.15.0
 gunicorn
 fastapi
 uvicorn
