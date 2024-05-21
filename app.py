@@ -35,7 +35,7 @@ async def home():
 async def predict(data: InputData):
     try:
         input_data = data.data
-        prediction = model.predict(np.array([input_data]))
+        prediction = model.predict(np.array([input_data]).reshape(1,-1))
         result = np.argmax(prediction)
         if result == 1:
             return {"Prediction": "Abnormal Condition"}
